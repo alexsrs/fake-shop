@@ -24,6 +24,17 @@ spec:
         - name: POSTGRES_DB
           value: ecommerce
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgre
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5432
+  selector:
+    app: postgre
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -51,3 +62,16 @@ spec:
           value: Pg1234
         - name: DB_NAME
           value: ecommerce
+        - name: FLASK_APP
+          value: index.py
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fakeshop
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+  selector:
+    app: fake-shop
