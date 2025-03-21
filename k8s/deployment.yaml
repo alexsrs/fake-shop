@@ -24,7 +24,6 @@ spec:
         - name: POSTGRES_DB
           value: ecommerce
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -40,7 +39,7 @@ spec:
     spec:
       containers:
       - name: fakeshop
-        image: alexsrs/fake-shop:v1
+        image: alexsrs/fake-shop:v1.1
         ports:
         - containerPort: 5000
         env:
