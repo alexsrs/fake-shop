@@ -39,7 +39,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: fakeshop 
-spec: 
+spec:
+  replicas: 10
   selector: 
     matchLabels: 
       app: fakeshop
@@ -73,5 +74,6 @@ spec:
   type: NodePort
   ports:
   - port: 5000
+    nodePort: 30000
   selector:
     app: fakeshop
