@@ -74,4 +74,4 @@ spec:
   ports:
   - port: 5000
   selector:
-    app: fake-shop
+    app: fakeshop
